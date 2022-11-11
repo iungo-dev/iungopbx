@@ -2,8 +2,8 @@ import {expect, getSdk, accountGenerator, accountGeneratorHelper, spy} from '../
 
 describe('Platform', function() {
 
-    var iungosdk = getSdk();
-    var platform = iungosdk.platform();
+    var rcsdk = getSdk();
+    var platform = rcsdk.platform();
 
     this.timeout(5000);
 

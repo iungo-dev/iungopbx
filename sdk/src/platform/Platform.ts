@@ -496,7 +496,7 @@ export default class Platform extends EventEmitter {
                     body.grant_type = 'urn:ietf:params:oauth:grant-type:jwt-bearer';
                     body.assertion = jwt;
                 } else if (code) {
-                    //@see https://iungo.cloud/legacy-api-reference/index.html#!#RefAuthorizationCodeFlow
+                    //@see https://developers.iungo.com/legacy-api-reference/index.html#!#RefAuthorizationCodeFlow
                     body.grant_type = 'authorization_code';
                     body.code = code;
                     body.redirect_uri = redirect_uri ? redirect_uri : this._redirectUri;

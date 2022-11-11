@@ -35,11 +35,11 @@
   "types": "./lib/index.d.ts",
   "author": {
     "name": "Iungo, Inc.",
-    "url": "https://iungo.cloud"
+    "url": "https://developers.iungo.com"
   },
   "contributors": [
     {
-      "name": "Kirill Konshin"
+      "name": "Daniel Paixao"
     }
   ],
   "repository": {

@@ -49,16 +49,16 @@ jobs:
         id: extract_branch
       - run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       - run: npm run publish:release -- --canary --preid=$BRANCH.$GITHUB_RUN_ID.$GITHUB_RUN_NUMBER --dist-tag=$BRANCH --yes
-        if: ${{ contains(env.TAG, 'refs/heads') && github.event_name == 'push' && github.repository == 'iungopbx/iungo-js' }}
+        if: ${{ contains(env.TAG, 'refs/heads') && github.event_name == 'push' && github.repository == 'ringcentral/ringcentral-js' }}
         env:
           BRANCH: ${{ steps.extract_branch.outputs.branch }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm run publish:release -- $TAG --yes
-        if: ${{ env.TAG != '' && !contains(env.TAG, '/') && !contains(env.TAG, '-') && github.repository == 'iungopbx/iungo-js' }}
+        if: ${{ env.TAG != '' && !contains(env.TAG, '/') && !contains(env.TAG, '-') && github.repository == 'ringcentral/ringcentral-js' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
-        if: ${{ env.TAG != '' && !contains(env.TAG, '/') && !contains(env.TAG, '-') && github.repository == 'iungopbx/iungo-js' }}
+        if: ${{ env.TAG != '' && !contains(env.TAG, '/') && !contains(env.TAG, '-') && github.repository == 'ringcentral/ringcentral-js' }}
         uses: softprops/action-gh-release@v1
         with:
           files: |
@@ -71,5 +71,5 @@ jobs:
             subscriptions/dist/ringcentral-subscriptions.min.js
             subscriptions/dist/ringcentral-subscriptions.min.js.map
         env:
-          GITHUB_REPOSITORY: iungopbx/iungo-js
+          GITHUB_REPOSITORY: ringcentral/ringcentral-js
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

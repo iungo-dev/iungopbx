@@ -29,7 +29,7 @@ This document contains only major functionality changes in certain versions. Min
 ## 2.0
 
 - Helpers were moved to separate repository: [Iungo JS Helpers](https://github.com/iungopbx/iungo-js-helpers).
-- Root JS name has changed from `IUNGOSDK` to `Iungo.SDK`
+- Root JS name has changed from `IUNGO` to `Iungo.SDK`
 - New naming convention: `getSomething()` methods are now simply `something()`
 - `Auth` class inside `Platform`
 - `AjaxObserver` functionality been moved to `Client`
@@ -55,23 +55,23 @@ The key differences between versions:
 - Promises/A+
     - Native ECMAScript6 where available (Chrome, FireFox, Safari)
     - RSVP polyfill for older browsers
-- IUNGOSDK is now a constructor
+- IUNGO is now a constructor
     - Instance has a context, so it is possible to have multiple simultaneous connections to API
-- All other objects are obtained through IUNGOSDK instance's getters instead of static methods of classes
+- All other objects are obtained through IUNGO instance's getters instead of static methods of classes
 
 ### Initialization
 
 Before:
 
 ```js
-var platform = IUNGOSDK.core.Platform.getInstance();
+var platform = IUNGO.core.Platform.getInstance();
 ```
 
 After:
 
 ```js
-var iungosdk = new IUNGOSDK(), // save this object, everything else is provided by it
-    platform = iungosdk.getPlatform();
+var rcsdk = new IUNGO(), // save this object, everything else is provided by it
+    platform = rcsdk.getPlatform();
 ```
 
 ### Promises and API Calls
@@ -104,13 +104,13 @@ This also applies to any other place that formerly accepted `success` and `error
 Before:
 
 ```js
-IUNGOSDK.core.Ajax.observer.on(...)
+IUNGO.core.Ajax.observer.on(...)
 ```
 
 After:
 
 ```js
-iungosdk.getAjaxObserver().on(...);
+rcsdk.getAjaxObserver().on(...);
 ```
 
 ### Call Monitoring Object is deprecated

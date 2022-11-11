@@ -46,7 +46,7 @@ export class SDK {
 
     public static server = {
         sandbox: 'https://dev2.iungo.cloud',
-        production: 'https://dev1.iungo.cloud',
+        production: 'https://dev2.iungo.cloud',
     };
 
     public static handleLoginRedirect(origin, win) {

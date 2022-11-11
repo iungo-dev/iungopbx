@@ -10,9 +10,9 @@ export const createSubscriptions = sdk => new Subscriptions({sdk, PubNub: PubNub
 
 export function presenceLoad(id) {
     apiCall('GET', `/restapi/v1.0/account/~/extension/${id}/presence`, {
-        uri: `https://dev1.iungo.cloud/restapi/v1.0/account/123/extension/${id}/presence`,
+        uri: `https://dev2.iungo.cloud/restapi/v1.0/account/123/extension/${id}/presence`,
         extension: {
-            uri: `https://dev1.iungo.cloud/restapi/v1.0/account/123/extension/${id}`,
+            uri: `https://dev2.iungo.cloud/restapi/v1.0/account/123/extension/${id}`,
             id,
             extensionNumber: '101',
         },
@@ -56,7 +56,7 @@ export function subscribeGeneric(expiresIn = 15 * 60 * 60, id = null, remove = f
                   id: 'foo-bar-baz',
                   creationTime: date.toISOString(),
                   status: 'Active',
-                  uri: 'https://dev1.iungo.cloud/restapi/v1.0/subscription/foo-bar-baz',
+                  uri: 'https://dev2.iungo.cloud/restapi/v1.0/subscription/foo-bar-baz',
               },
     );
 }
@@ -81,6 +81,6 @@ export function subscribeOnPresence(id = '1', detailed = false) {
         creationTime: date.toISOString(),
         id: 'foo-bar-baz',
         status: 'Active',
-        uri: 'https://dev1.iungo.cloud/restapi/v1.0/subscription/foo-bar-baz',
+        uri: 'https://dev2.iungo.cloud/restapi/v1.0/subscription/foo-bar-baz',
     });
 }

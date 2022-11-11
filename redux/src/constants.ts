@@ -1,4 +1,4 @@
-export const PREFIX = `rc/`;
+export const PREFIX = `iungo/`;
 export const AUTH_ERROR = `${PREFIX}AUTH_ERROR`;
 
 export const LOGIN = `${PREFIX}LOGIN`;

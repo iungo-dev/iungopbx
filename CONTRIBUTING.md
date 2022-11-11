@@ -79,10 +79,10 @@ These tests access real account on real production/staging servers. In order to 
 variables have to be defined:
 
 ```
-IUNGOSDK_API_KEY=YOUR_API_KEY
-IUNGOSDK_API_SERVER=https://dev1.iungo.cloud
-IUNGOSDK_AGS_SERVER=http://ags-server-host
-IUNGOSDK_AGS_DBNAME=database
+IUNGO_API_KEY=YOUR_API_KEY
+IUNGO_API_SERVER=http://platform.iungo.com
+IUNGO_AGS_SERVER=http://ags-server-host
+IUNGO_AGS_DBNAME=database
 ```
 
 Once ready run the following command:
@@ -94,7 +94,7 @@ $ npm run test-api
 Environment variables may also be defined inline (substitute `(...)` with more vars):
 
 ```
-$ IUNGOSDK_API_KEY=YOUR_API_KEY (...) IUNGOSDK_AGS_DBNAME=database npm run test-api
+$ IUNGO_API_KEY=YOUR_API_KEY (...) IUNGO_AGS_DBNAME=database npm run test-api
 ```
 
 # Authentication Flow

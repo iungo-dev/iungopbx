@@ -32,13 +32,13 @@ deploy:
   on:
     branch: master
     tags: false
-    repo: iungopbx/iungo-js
+    repo: iungo/iungo-js
 - provider: script
   script: npm run publish:release -- $TRAVIS_TAG --yes
   skip_cleanup: true
   on:
     tags: true
-    repo: iungopbx/iungo-js
+    repo: iungo/iungo-js
 - provider: releases
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
@@ -53,7 +53,7 @@ deploy:
   - subscriptions/dist/iungo-subscriptions.min.js.map
   on:
     tags: true
-    repo: iungopbx/iungo-js
+    repo: iungo/iungo-js
 
 after_success:
 - npm run test:coverage
