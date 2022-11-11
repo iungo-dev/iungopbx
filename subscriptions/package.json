@@ -21,8 +21,8 @@
     "pubnub": "^4.29.11"
   },
   "devDependencies": {
-    "@iungo/sdk": "*",
-    "@iungo/sdk-utils": "*",
+    "@iungo/sdk": "git+https://github.com/iungopbx/sdk.git",
+    "@iungo/sdk-utils": "git+https://github.com/iungopbx/sdk-utils.git",
     "@types/mocha": "^5.2.5",
     "@types/node": "^18.8.5",
     "@types/pubnub": "^4.0.2",
