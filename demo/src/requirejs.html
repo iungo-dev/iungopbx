@@ -53,7 +53,7 @@
         var sdk = new SDK({server: SDK.server.sandbox});
         var subscription = new Subscriptions({sdk: sdk});
 
-        sdk.platform().get('/restapi/v1.0', null, {skipAuthCheck: true})
+        sdk.platform().get('/app/api', null, {skipAuthCheck: true})
                 .then(function(apiResponse) { return apiResponse.json(); })
                 .then(function(data) {
 

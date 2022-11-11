@@ -51,7 +51,7 @@ describe('Iungo.platform.Platform', () => {
             asyncTest(async sdk => {
                 const platform = sdk.platform();
                 const client = sdk.client();
-                const path = `/restapi/v1.0/foo/get`;
+                const path = `/app/api/foo/get`;
 
                 apiCall('get', path, {foo: 'bar'});
                 let request;
@@ -69,7 +69,7 @@ describe('Iungo.platform.Platform', () => {
                 async sdk => {
                     const platform = sdk.platform();
                     const client = sdk.client();
-                    const path = `/restapi/v1.0/foo/get`;
+                    const path = `/app/api/foo/get`;
 
                     apiCall('get', path, {foo: 'bar'});
                     let request;
@@ -92,7 +92,7 @@ describe('Iungo.platform.Platform', () => {
                 async sdk => {
                     const platform = sdk.platform();
                     const client = sdk.client();
-                    const path = `/restapi/v1.0/foo/get`;
+                    const path = `/app/api/foo/get`;
 
                     apiCall('get', path, {foo: 'bar'});
                     let request;
@@ -114,7 +114,7 @@ describe('Iungo.platform.Platform', () => {
                 async sdk => {
                     const platform = sdk.platform();
                     const client = sdk.client();
-                    const path = `/restapi/v1.0/foo/get`;
+                    const path = `/app/api/foo/get`;
 
                     apiCall('get', path, {foo: 'bar'});
                     let request;
@@ -136,7 +136,7 @@ describe('Iungo.platform.Platform', () => {
                 async sdk => {
                     const platform = sdk.platform();
                     const client = sdk.client();
-                    const path = `/restapi/v1.0/foo/get`;
+                    const path = `/app/api/foo/get`;
 
                     apiCall('get', path, {foo: 'bar'});
                     let request;
@@ -335,7 +335,7 @@ describe('Iungo.platform.Platform', () => {
 
                 await platform.auth().cancelAccessToken();
 
-                apiCall('POST', '/restapi/oauth/token', {message: 'expected'}, 400);
+                apiCall('POST', '/app/api/token', {message: 'expected'}, 400);
 
                 await expectThrows(async () => platform.login({code: 'foo'}), 'expected');
             }),
@@ -350,7 +350,7 @@ describe('Iungo.platform.Platform', () => {
 
                 await platform.auth().cancelAccessToken();
 
-                apiCall('POST', '/restapi/oauth/token', {message: 'expected'}, 400);
+                apiCall('POST', '/app/api/token', {message: 'expected'}, 400);
 
                 const res = await platform.loggedIn();
 
@@ -364,7 +364,7 @@ describe('Iungo.platform.Platform', () => {
             'refreshes token when token was expired',
             asyncTest(async sdk => {
                 const platform = sdk.platform();
-                const path = '/restapi/xxx';
+                const path = '/app/api/xxx';
                 const refreshSpy = spy(() => {});
 
                 tokenRefresh();
@@ -385,7 +385,7 @@ describe('Iungo.platform.Platform', () => {
             'tries to refresh the token if Platform returns 401 Unauthorized and re-executes the request',
             asyncTest(async sdk => {
                 const platform = sdk.platform();
-                const path = '/restapi/xxx';
+                const path = '/app/api/xxx';
                 const response = {foo: 'bar'};
                 const refreshSpy = spy(() => {
                     apiCall('GET', path, response, 200);
@@ -408,7 +408,7 @@ describe('Iungo.platform.Platform', () => {
             'fails if ajax has status other than 2xx',
             asyncTest(async sdk => {
                 const platform = sdk.platform();
-                const path = '/restapi/xxx';
+                const path = '/app/api/xxx';
 
                 apiCall('GET', path, {description: 'Fail'}, 400, 'Bad Request');
 
@@ -420,7 +420,7 @@ describe('Iungo.platform.Platform', () => {
             'handles rate limit 429',
             asyncTest(async sdk => {
                 const platform = sdk.platform();
-                const path = '/restapi/xxx';
+                const path = '/app/api/xxx';
                 const response = {foo: 'bar'};
                 const rateLimitSpy = spy(() => {
                     apiCall('GET', path, response, 200);
@@ -446,7 +446,7 @@ describe('Iungo.platform.Platform', () => {
             'handles default rate limit 429',
             asyncTest(async sdk => {
                 const platform = sdk.platform();
-                const path = '/restapi/xxx';
+                const path = '/app/api/xxx';
                 const response = {foo: 'bar'};
                 const rateLimitSpy = spy(() => {
                     apiCall('GET', path, response, 200);
@@ -474,7 +474,7 @@ describe('Iungo.platform.Platform', () => {
             'emits rate limit 429 errors if they are not handled',
             asyncTest(async sdk => {
                 const platform = sdk.platform();
-                const path = '/restapi/xxx';
+                const path = '/app/api/xxx';
                 const rateLimitSpy = spy(() => {});
 
                 apiCall('GET', path, {message: 'expected'}, 429, 'Rate Limit Exceeded');
@@ -499,7 +499,7 @@ describe('Iungo.platform.Platform', () => {
             'handles error in queued AJAX after unsuccessful refresh when token is killed',
             asyncTest(async sdk => {
                 const platform = sdk.platform();
-                const path = '/restapi/xxx';
+                const path = '/app/api/xxx';
                 const successSpy = spy(() => {});
                 const errorSpy = spy(() => {});
 
@@ -546,7 +546,7 @@ describe('Iungo.platform.Platform', () => {
 
                 apiCall(
                     'POST',
-                    '/restapi/oauth/token',
+                    '/app/api/token',
                     {
                         message: 'Wrong token',
                         error_description: 'Wrong token',
@@ -567,9 +567,9 @@ describe('Iungo.platform.Platform', () => {
             'issues only one refresh request',
             asyncTest(async sdk => {
                 tokenRefresh();
-                apiCall('GET', '/restapi/v1.0/foo/1', {increment: 1});
-                apiCall('GET', '/restapi/v1.0/foo/2', {increment: 2});
-                apiCall('GET', '/restapi/v1.0/foo/3', {increment: 3});
+                apiCall('GET', '/app/api/foo/1', {increment: 1});
+                apiCall('GET', '/app/api/foo/2', {increment: 2});
+                apiCall('GET', '/app/api/foo/3', {increment: 3});
 
                 const platform = sdk.platform();
 
@@ -577,9 +577,9 @@ describe('Iungo.platform.Platform', () => {
 
                 const res = await Promise.all(
                     (await Promise.all([
-                        platform.get('/restapi/v1.0/foo/1'),
-                        platform.get('/restapi/v1.0/foo/2'),
-                        platform.get('/restapi/v1.0/foo/3'),
+                        platform.get('/app/api/foo/1'),
+                        platform.get('/app/api/foo/2'),
+                        platform.get('/app/api/foo/3'),
                     ])).map(r => r.json()),
                 );
 
@@ -641,7 +641,7 @@ describe('Iungo.platform.Platform', () => {
                 const platform = sdk.platform();
 
                 const test = async method => {
-                    const path = `/restapi/v1.0/foo/${method}`;
+                    const path = `/app/api/foo/${method}`;
 
                     apiCall(method, path, {foo: 'bar'});
 
@@ -662,7 +662,7 @@ describe('Iungo.platform.Platform', () => {
             asyncTest(async sdk => {
                 const platform = sdk.platform();
                 const client = sdk.client();
-                const path = `/restapi/v1.0/foo/get`;
+                const path = `/app/api/foo/get`;
 
                 apiCall('get', path, {foo: 'bar'});
                 let request;
@@ -681,36 +681,36 @@ describe('Iungo.platform.Platform', () => {
             asyncTest(async sdk => {
                 const platform = sdk.platform();
 
-                expect(platform.createUrl('/restapi/v1.0/foo')).to.equal('/restapi/v1.0/foo');
+                expect(platform.createUrl('/app/api/foo')).to.equal('/app/api/foo');
 
-                expect(platform.createUrl('/restapi/v1.0/foo', {addServer: true})).to.equal(
-                    'http://whatever/restapi/v1.0/foo',
+                expect(platform.createUrl('/app/api/foo', {addServer: true})).to.equal(
+                    'http://whatever/app/api/foo',
                 );
 
                 expect(
                     await platform.signUrl(
-                        platform.createUrl('/restapi/v1.0/foo', {
+                        platform.createUrl('/app/api/foo', {
                             addServer: true,
                         }),
                     ),
-                ).to.equal('http://whatever/restapi/v1.0/foo?access_token=ACCESS_TOKEN');
+                ).to.equal('http://whatever/app/api/foo?access_token=ACCESS_TOKEN');
 
                 expect(
                     await platform.signUrl(
-                        platform.createUrl('/restapi/v1.0/foo?bar', {
+                        platform.createUrl('/app/api/foo?bar', {
                             addServer: true,
                         }),
                     ),
-                ).to.equal('http://whatever/restapi/v1.0/foo?bar&access_token=ACCESS_TOKEN');
+                ).to.equal('http://whatever/app/api/foo?bar&access_token=ACCESS_TOKEN');
 
                 expect(
                     await platform.signUrl(
-                        platform.createUrl('/restapi/v1.0/foo?bar', {
+                        platform.createUrl('/app/api/foo?bar', {
                             addServer: true,
                             addMethod: 'POST',
                         }),
                     ),
-                ).to.equal('http://whatever/restapi/v1.0/foo?bar&_method=POST&access_token=ACCESS_TOKEN');
+                ).to.equal('http://whatever/app/api/foo?bar&_method=POST&access_token=ACCESS_TOKEN');
 
                 expect(
                     await platform.signUrl(
@@ -759,7 +759,7 @@ describe('Iungo.platform.Platform', () => {
                         prompt: 'foo',
                     }),
                 ).to.equal(
-                    'http://whatever/restapi/oauth/authorize?response_type=token&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=foo&brand_id=foo&display=foo&prompt=foo&ui_options=&ui_locales=&localeId=',
+                    'http://whatever/app/api/authorize?response_type=token&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=foo&brand_id=foo&display=foo&prompt=foo&ui_options=&ui_locales=&localeId=',
                 );
 
                 expect(
@@ -771,7 +771,7 @@ describe('Iungo.platform.Platform', () => {
                         prompt: 'foo',
                     }),
                 ).to.equal(
-                    'http://whatever/restapi/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=foo&brand_id=foo&display=foo&prompt=foo&ui_options=&ui_locales=&localeId=',
+                    'http://whatever/app/api/authorize?response_type=code&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=foo&brand_id=foo&display=foo&prompt=foo&ui_options=&ui_locales=&localeId=',
                 );
 
                 expect(
@@ -779,7 +779,7 @@ describe('Iungo.platform.Platform', () => {
                         implicit: false,
                     }),
                 ).to.equal(
-                    'http://whatever/restapi/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=&brand_id=&display=&prompt=&ui_options=&ui_locales=&localeId=',
+                    'http://whatever/app/api/authorize?response_type=code&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=&brand_id=&display=&prompt=&ui_options=&ui_locales=&localeId=',
                 );
 
                 expect(
@@ -802,7 +802,7 @@ describe('Iungo.platform.Platform', () => {
                         responseHint: ['baz', 'quux'],
                     }),
                 ).to.equal(
-                    'http://whatever/restapi/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=&brand_id=&display=&prompt=&ui_options=foo&ui_options=bar&ui_locales=&localeId=&response_hint=baz&response_hint=quux',
+                    'http://whatever/app/api/authorize?response_type=code&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=&brand_id=&display=&prompt=&ui_options=foo&ui_options=bar&ui_locales=&localeId=&response_hint=baz&response_hint=quux',
                 );
 
                 expect(
@@ -812,7 +812,7 @@ describe('Iungo.platform.Platform', () => {
                         responseHint: 'bar',
                     }),
                 ).to.equal(
-                    'http://whatever/restapi/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=&brand_id=&display=&prompt=&ui_options=foo&ui_locales=&localeId=&response_hint=bar',
+                    'http://whatever/app/api/authorize?response_type=code&redirect_uri=http%3A%2F%2Ffoo&client_id=whatever&state=&brand_id=&display=&prompt=&ui_options=foo&ui_locales=&localeId=&response_hint=bar',
                 );
             }),
         );
@@ -1173,7 +1173,7 @@ describe('Iungo.platform.Platform', () => {
             await platform.login({
                 code: 'whatever',
                 discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                token_uri: 'http://whatever/restapi/oauth/token',
+                token_uri: 'http://whatever/app/api/token',
             });
             const externalData = await platform.discovery().externalData();
             expect(externalData.coreApi.baseUri).to.equal(externalDiscoveryData.coreApi.baseUri);
@@ -1193,7 +1193,7 @@ describe('Iungo.platform.Platform', () => {
             await platform.login({
                 code: 'whatever',
                 discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                token_uri: 'http://whatever/restapi/oauth/token',
+                token_uri: 'http://whatever/app/api/token',
             });
             const externalData = await platform.discovery().externalData();
             expect(externalData.coreApi.baseUri).to.equal(externalDiscoveryData.coreApi.baseUri);
@@ -1230,7 +1230,7 @@ describe('Iungo.platform.Platform', () => {
             await platform.login({
                 code: 'whatever',
                 discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                token_uri: 'http://whatever/restapi/oauth/token',
+                token_uri: 'http://whatever/app/api/token',
             });
             const externalData = await platform.discovery().externalData();
             expect(externalData.coreApi.baseUri).to.equal(externalDiscoveryData.coreApi.baseUri);
@@ -1257,7 +1257,7 @@ describe('Iungo.platform.Platform', () => {
                 await platform.login({
                     code: 'whatever',
                     discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                    token_uri: 'http://whatever/restapi/oauth/token',
+                    token_uri: 'http://whatever/app/api/token',
                 });
             } catch (e) {
                 hasError = true;
@@ -1272,7 +1272,7 @@ describe('Iungo.platform.Platform', () => {
             await noDiscoverySdk.platform().login({
                 code: 'whatever',
                 discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                token_uri: 'http://whatever/restapi/oauth/token',
+                token_uri: 'http://whatever/app/api/token',
             });
             const initialDiscoveryData = getInitialDiscoveryMockData();
             const externalDiscoveryData = getExternalDiscoveryMockData();
@@ -1284,8 +1284,8 @@ describe('Iungo.platform.Platform', () => {
                 server: '',
                 localStorage: noDiscoverySdk.externals().localStorage,
             });
-            apiCall('GET', '/restapi/v1.0/foo/1', {increment: 1});
-            const res = await withDiscoverySDK.get('/restapi/v1.0/foo/1');
+            apiCall('GET', '/app/api/foo/1', {increment: 1});
+            const res = await withDiscoverySDK.get('/app/api/foo/1');
             const data = await res.json();
             expect(data.increment).to.equal(1);
         });
@@ -1308,13 +1308,13 @@ describe('Iungo.platform.Platform', () => {
             await platform.login({
                 code: 'whatever',
                 discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                token_uri: 'http://whatever/restapi/oauth/token',
+                token_uri: 'http://whatever/app/api/token',
             });
         });
 
         it('should fetch api request successfully', async () => {
-            apiCall('GET', '/restapi/v1.0/foo/1', {increment: 1});
-            const res = await platform.get('/restapi/v1.0/foo/1');
+            apiCall('GET', '/app/api/foo/1', {increment: 1});
+            const res = await platform.get('/app/api/foo/1');
             const data = await res.json();
             expect(data.increment).to.equal(1);
         });
@@ -1337,7 +1337,7 @@ describe('Iungo.platform.Platform', () => {
             cleanFetchMock();
             logout();
             const initialDiscoveryData = getInitialDiscoveryMockData();
-            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/restapi/oauth/authorize';
+            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/app/api/authorize';
             apiCall('GET', '/.well-known/entry-points/initial?clientId=whatever', initialDiscoveryData);
             const noErrors = true;
             await platform.logout();
@@ -1352,7 +1352,7 @@ describe('Iungo.platform.Platform', () => {
             cleanFetchMock();
             logout(404);
             const initialDiscoveryData = getInitialDiscoveryMockData();
-            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/restapi/oauth/authorize';
+            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/app/api/authorize';
             apiCall('GET', '/.well-known/entry-points/initial?clientId=whatever', initialDiscoveryData);
             let hasError = false;
             try {
@@ -1372,7 +1372,7 @@ describe('Iungo.platform.Platform', () => {
             cleanFetchMock();
             logout();
             const initialDiscoveryData = getInitialDiscoveryMockData();
-            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/restapi/oauth/authorize';
+            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/app/api/authorize';
             apiCall('GET', '/.well-known/entry-points/initial?clientId=whatever', initialDiscoveryData);
             await platform.logout();
             const externalDiscoveryData = getExternalDiscoveryMockData();
@@ -1382,7 +1382,7 @@ describe('Iungo.platform.Platform', () => {
             await platform.login({
                 code: 'whatever',
                 discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                token_uri: 'http://whatever/restapi/oauth/token',
+                token_uri: 'http://whatever/app/api/token',
             });
             expect(noErrors).to.equal(true);
             const externalData = await platform.discovery().externalData();
@@ -1390,7 +1390,7 @@ describe('Iungo.platform.Platform', () => {
         });
 
         it('should trigger refresh external discovery data when Discovery-Required', async () => {
-            apiCall('GET', '/restapi/v1.0/foo/1', {increment: 1}, 200, 'OK', {
+            apiCall('GET', '/app/api/foo/1', {increment: 1}, 200, 'OK', {
                 'Discovery-Required': 1,
                 'Access-Control-Expose-Headers': 'Discovery-Required',
             });
@@ -1398,7 +1398,7 @@ describe('Iungo.platform.Platform', () => {
             externalDiscoveryData.version = '1.0.1';
             // mock
             apiCall('GET', '/.well-known/entry-points/external', externalDiscoveryData);
-            const res = await platform.get('/restapi/v1.0/foo/1');
+            const res = await platform.get('/app/api/foo/1');
             await res.json();
             if (platform.discovery().refreshingExternalData) {
                 await platform.discovery().refreshExternalData();
@@ -1408,13 +1408,13 @@ describe('Iungo.platform.Platform', () => {
         });
 
         it('should trigger refresh external discovery data when external data removed', async () => {
-            apiCall('GET', '/restapi/v1.0/foo/1', {increment: 1}, 200, 'OK');
+            apiCall('GET', '/app/api/foo/1', {increment: 1}, 200, 'OK');
             const externalDiscoveryData = getExternalDiscoveryMockData();
             externalDiscoveryData.version = '1.0.1';
             // mock
             apiCall('GET', '/.well-known/entry-points/external', externalDiscoveryData);
             await platform.discovery().removeExternalData();
-            const res = await platform.get('/restapi/v1.0/foo/1');
+            const res = await platform.get('/app/api/foo/1');
             await res.json();
             if (platform.discovery().refreshingExternalData) {
                 await platform.discovery().refreshExternalData();
@@ -1425,7 +1425,7 @@ describe('Iungo.platform.Platform', () => {
 
         it('should not throw error when refresh error and start retry cycle', async function() {
             this.timeout(20000);
-            apiCall('GET', '/restapi/v1.0/foo/1', {increment: 1}, 200, 'OK', {
+            apiCall('GET', '/app/api/foo/1', {increment: 1}, 200, 'OK', {
                 'Discovery-Required': 1,
                 'Access-Control-Expose-Headers': 'Discovery-Required',
             });
@@ -1433,7 +1433,7 @@ describe('Iungo.platform.Platform', () => {
             apiCall('GET', '/.well-known/entry-points/external', null, 500);
             apiCall('GET', '/.well-known/entry-points/external', null, 500);
             apiCall('GET', '/.well-known/entry-points/external', null, 500);
-            const res = await platform.get('/restapi/v1.0/foo/1');
+            const res = await platform.get('/app/api/foo/1');
             await res.json();
             if (platform.discovery().refreshingExternalData) {
                 await platform.discovery().refreshExternalData();
@@ -1473,14 +1473,14 @@ describe('Iungo.platform.Platform', () => {
             cleanFetchMock();
             authentication(502);
             const initialDiscoveryData = getInitialDiscoveryMockData();
-            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/restapi/oauth/authorize';
+            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/app/api/authorize';
             apiCall('GET', '/.well-known/entry-points/initial?clientId=whatever', initialDiscoveryData);
             let hasError = false;
             try {
                 await platform.login({
                     code: 'whatever',
                     discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                    token_uri: 'http://whatever/restapi/oauth/token',
+                    token_uri: 'http://whatever/app/api/token',
                 });
             } catch (e) {
                 hasError = true;
@@ -1498,12 +1498,12 @@ describe('Iungo.platform.Platform', () => {
             await platform.login({
                 code: 'whatever',
                 discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                token_uri: 'http://whatever/restapi/oauth/token',
+                token_uri: 'http://whatever/app/api/token',
             });
             cleanFetchMock();
             tokenRefresh(true);
             const initialDiscoveryData = getInitialDiscoveryMockData();
-            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/restapi/oauth/authorize';
+            initialDiscoveryData.authApi.authorizationUri = 'http://whatever1/app/api/authorize';
             apiCall('GET', '/.well-known/entry-points/initial?clientId=whatever', initialDiscoveryData);
             let hasError = false;
             try {
@@ -1541,7 +1541,7 @@ describe('Iungo.platform.Platform', () => {
             await platform.login({
                 code: 'whatever',
                 discovery_uri: 'http://whatever/.well-known/entry-points/external',
-                token_uri: 'http://whatever/restapi/oauth/token',
+                token_uri: 'http://whatever/app/api/token',
             });
         });
 
@@ -1551,12 +1551,12 @@ describe('Iungo.platform.Platform', () => {
         });
 
         it('should send Discovery-Tag header in api request', async () => {
-            apiCall('GET', '/restapi/v1.0/foo/1', {increment: 1});
+            apiCall('GET', '/app/api/foo/1', {increment: 1});
             let request;
             sdk.client().on(sdk.client().events.requestSuccess, (_, r) => {
                 request = r;
             });
-            const res = await platform.get('/restapi/v1.0/foo/1');
+            const res = await platform.get('/app/api/foo/1');
             expect(request.headers.get('discovery-tag')).to.equal(discoveryTag);
         });
     });

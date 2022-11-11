@@ -13,7 +13,7 @@ export default class Dashboard extends Component<any, DashboardState> {
         try {
             this.setState({
                 // we can send requests here since we're guarded by LoggedInWrapper
-                user: await (await sdk.get('/restapi/v1.0/account/~/extension/~')).json(),
+                user: await (await sdk.get('/app/api/extension/')).json(),
             });
         } catch (error) {
             this.setState({error});

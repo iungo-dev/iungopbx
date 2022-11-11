@@ -130,7 +130,7 @@ subscription.on(subscription.events.notification, function(msg) {
 });
 
 subscription
-    .setEventFilters(['/restapi/v1.0/account/~/extension/~/presence']) // a list of server-side events
+    .setEventFilters(['/app/api/extension/presence']) // a list of server-side events
     .register()
     .then(...);
 ```
@@ -150,8 +150,8 @@ You can add more or replace event filters in the existing subscription at any ti
 and then calling the `register()` method to update it on the server:
 
 ```js
-subscription.setEventFilters(['/restapi/v1.0/account/~/extension/111/presence']).register();
-subscription.addEventFilters(['/restapi/v1.0/account/~/extension/222/presence']).register();
+subscription.setEventFilters(['/app/api/extension/111/presence']).register();
+subscription.addEventFilters(['/app/api/extension/222/presence']).register();
 ```
 
 ## Subscription reset
@@ -189,7 +189,7 @@ if (cachedSubscriptionData) {
         console.error('Cannot set subscription data', e);
     }
 } else {
-    subscription.setEventFilters(['/restapi/v1.0/account/~/extension/~/presence']); // explicitly set required events
+    subscription.setEventFilters(['/app/api/extension/presence']); // explicitly set required events
 }
 
 subscription.on([subscription.events.subscribeSuccess, subscription.events.renewSuccess], function() {
@@ -255,7 +255,7 @@ The above mentioned things are put together into `CachedSubscription` class and 
 ```js
 var subscription = subscriptions
     .createCachedSubscription('cache-key')
-    .restore(['/restapi/v1.0/account/~/extension/~/presence']);
+    .restore(['/app/api/extension/presence']);
 
 // use it as usual
 subscription.register().catch(...);

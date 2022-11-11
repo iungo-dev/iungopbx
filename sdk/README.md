@@ -334,7 +334,7 @@ To perform an authenticated API call, you should use the one of the methods of t
 rcsdk
     .send({
         method: 'PUT',
-        url: '/restapi/v1.0/account/~/extension/~',
+        url: '/app/api/extension/',
         query: {...},
         headers: {...},
         body: {...}
@@ -373,11 +373,11 @@ If your `Promise` library supports global error handler it might be useful to lo
 ## HTTP Verb shorthands
 
 ```js
-rcsdk.get('/restapi/v1.0/account/~/extension/~', {...query}).then(...);
-rcsdk.post('/restapi/v1.0/account/~/extension/~', {...body}, {...query}).then(...);
-rcsdk.put('/restapi/v1.0/account/~/extension/~', {...body}, {...query}).then(...);
-rcsdk.patch('/restapi/v1.0/account/~/extension/~', {...body}, {...query}).then(...);
-rcsdk.delete('/restapi/v1.0/account/~/extension/~', {...query}).then(...);
+rcsdk.get('/app/api/extension/', {...query}).then(...);
+rcsdk.post('/app/api/extension/', {...body}, {...query}).then(...);
+rcsdk.put('/app/api/extension/', {...body}, {...query}).then(...);
+rcsdk.patch('/app/api/extension/', {...body}, {...query}).then(...);
+rcsdk.delete('/app/api/extension/', {...query}).then(...);
 ```
 
 ## Available API response methods
@@ -401,7 +401,7 @@ If you need to download a binary file from API (call recording, fax attachment),
 var fs = require('fs');
 
 // read as buffer
-rcsdk.get('/restapi/v1.0/account/~/messages/foo/content').then(function(res) {
+rcsdk.get('/app/api/messages/foo/content').then(function(res) {
 
     return res.response().buffer(); // we are accessing Node Fetch's Response
 
@@ -412,7 +412,7 @@ rcsdk.get('/restapi/v1.0/account/~/messages/foo/content').then(function(res) {
 });
 
 // read as stream
-rcsdk.get('/restapi/v1.0/account/~/messages/foo/content').then(function(res) {
+rcsdk.get('/app/api/messages/foo/content').then(function(res) {
 
     res.response().body.pipe(fs.createWriteStream('./octocat.png')); // we are accessing Node Fetch's Response
 
@@ -424,7 +424,7 @@ See more here [https://github.com/bitinn/node-fetch#usage](https://github.com/bi
 ### In browser
 
 ```js
-rcsdk.get('/restapi/v1.0/account/~/messages/foo/content').then(function(res) {
+rcsdk.get('/app/api/messages/foo/content').then(function(res) {
 
     return res.response().blob(); // or arrayBuffer(), we are accessing WhatWG Fetch's Response
 
@@ -445,7 +445,7 @@ In any case you always can just add token to known URL of resource and download 
 use directly as `<img src="..."/>`:
 
 ```js
-var url = rcsdk.signUrl('/restapi/v1.0/account/~/messages/foo/content');
+var url = rcsdk.signUrl('/app/api/messages/foo/content');
 ```
 
 ## Rate Limiting
@@ -541,7 +541,7 @@ function handleError(e) {
 function create(unsavedRingout) {
 
     rcsdk
-        .post('/restapi/v1.0/account/~/extension/~/ringout', unsavedRingout)
+        .post('/app/api/extension/ringout', unsavedRingout)
         .then(function(response) { return response.json() })
         .then(function(ringout) {
 
@@ -637,7 +637,7 @@ First, you need to load the initial Presence status (you can use Underscore or L
 var accountPresence = {};
 
 rcsdk
-    .get('/restapi/v1.0/account/~/extension/~/presence?detailedTelephonyState=true')
+    .get('/app/api/extension/presence?detailedTelephonyState=true')
     .then(function(response) { return response.json(); })
     .then(function(data) {
         _.extend(accountPresence, data);
@@ -650,7 +650,7 @@ rcsdk
 In the meantime, you can also set up Subscriptions (you can use Underscore or Lodash to simplify things):
 
 ```js
-var subscription = rcsdk.createSubscription().addEvents(['/restapi/v1.0/account/~/extension/~/presence?detailedTelephonyState=true']);
+var subscription = rcsdk.createSubscription().addEvents(['/app/api/extension/presence?detailedTelephonyState=true']);
 
 subscription.on(subscription.events.notification, function(msg) {
     _.extend(accountPresence, msg);
@@ -668,7 +668,7 @@ return subscription;
 ## View the list of active calls
 
 ```js
-rcsdk.get('/restapi/v1.0/account/~/extension/~/active-calls', {query: {page: 1, perPage: 10}})
+rcsdk.get('/app/api/extension/active-calls', {query: {page: 1, perPage: 10}})
     .then(function(response) { return response.json(); })
     .then(function(data) {
         activeCalls = data.records;
@@ -681,7 +681,7 @@ rcsdk.get('/restapi/v1.0/account/~/extension/~/active-calls', {query: {page: 1, 
 ## View the list of recent calls
 
 ```js
-rcsdk.get('/restapi/v1.0/account/~/extension/~/call-log', {query: {page: 1, perPage: 10}})
+rcsdk.get('/app/api/extension/call-log', {query: {page: 1, perPage: 10}})
     .then(function(response) { return response.json(); })
     .then(function(data) {
         calls = data.records;
@@ -699,7 +699,7 @@ By default, the load request returns calls that were made during the last week. 
 In order to send an SMS using the API, simply make a POST request to `/account/~/extension/~/sms`:
 
 ```js
-rcsdk.post('/restapi/v1.0/account/~/extension/~/sms', {
+rcsdk.post('/app/api/extension/sms', {
         from: {phoneNumber:'+12223334444'}, // Your sms-enabled phone number
         to: [
             {phoneNumber:'+15556667777'} // Second party's phone number
@@ -746,7 +746,7 @@ for (var i = 0, file; file = fileField.files[i]; ++i) {
 formData.append('attachment', new File(['some plain text'], 'text.txt', {type: 'application/octet-stream'}));
 
 // Send the fax
-rcsdk.post('/restapi/v1.0/account/~/extension/~/fax', formData);
+rcsdk.post('/app/api/extension/fax', formData);
 ```
 
 # MMS
@@ -773,7 +773,7 @@ for (var i = 0, file; file = fileField.files[i]; ++i) {
 }
 
 // Send the mms
-rcsdk.post('/restapi/v1.0/account/~/extension/~/sms', formData);
+rcsdk.post('/app/api/extension/sms', formData);
 ```
 
 ## MMS-Enabled Phone Number
@@ -783,7 +783,7 @@ In order to identify the MMS-Enabled phone numbers on an extension, simply make 
 ```js
 var mmsEnabledNumbers = [];
     rcsdk
-        .get('/restapi/v1.0/account/~/extension/~/phone-number', {'perPage': 'max'})
+        .get('/app/api/extension/phone-number', {'perPage': 'max'})
         .then(function(response) { return response.json(); })
         .then(function(data) {
             var phoneNumbers = data.records;
@@ -834,7 +834,7 @@ formData.append('attachment', Buffer('some plain text'), {filename: 'text.txt', 
 formData.append('attachment', require('fs').createReadStream('/foo/bar.jpg'));
 
 // Send the fax
-rcsdk.post('/restapi/v1.0/account/~/extension/~/fax', formData);
+rcsdk.post('/app/api/extension/fax', formData);
 ```
 
 Further reading:

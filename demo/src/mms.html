@@ -91,7 +91,7 @@
 
             var fromPhoneNumbers = [];
             platform
-                    .get('/restapi/v1.0/account/~/extension/~/phone-number', {'perPage': 'max'})
+                    .get('/app/api/extension/phone-number', {'perPage': 'max'})
                     .then(function(res) {
                         return res.json();
                     })
@@ -119,7 +119,7 @@
             var $form = document.getElementById('mms-form');
 
             $to.value = localStorage.getItem('iungo-demo-mms-to');
-            $form.action = platform.createUrl('/restapi/v1.0/account/~/extension/~/sms', {addToken: true, addServer: true});
+            $form.action = platform.createUrl('/app/api/extension/sms', {addToken: true, addServer: true});
 
             // Populate the dropdown menu
             for( var i = 0; i < fromPhoneNumbers.length; i++) {
@@ -168,7 +168,7 @@
                 }
 
                 platform
-                        .post('/restapi/v1.0/account/~/extension/~/sms', formData)
+                        .post('/app/api/extension/sms', formData)
                         .then(function(res) {
                             localStorage.setItem('iungo-demo-mms-to', $to.value);
                             alert('MMS has been sent', $to.value);

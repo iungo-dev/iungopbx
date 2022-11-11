@@ -24,7 +24,7 @@ export function apiCall(method, path, json, status = 200, statusText = 'OK', hea
 export function authentication(status = 200) {
     apiCall(
         'POST',
-        '/restapi/oauth/token',
+        '/app/api/token',
         {
             access_token: 'ACCESS_TOKEN',
             token_type: 'bearer',
@@ -39,12 +39,12 @@ export function authentication(status = 200) {
 }
 
 export function logout(status = 200) {
-    apiCall('POST', '/restapi/oauth/revoke', {}, status);
+    apiCall('POST', '/app/api/revoke', {}, status);
 }
 
 export function tokenRefresh(failure = false) {
     if (!failure) {
-        apiCall('POST', '/restapi/oauth/token', {
+        apiCall('POST', '/app/api/token', {
             access_token: 'ACCESS_TOKEN_FROM_REFRESH',
             token_type: 'bearer',
             expires_in: 3600,
@@ -55,7 +55,7 @@ export function tokenRefresh(failure = false) {
     } else {
         apiCall(
             'POST',
-            '/restapi/oauth/token',
+            '/app/api/token',
             {
                 message: 'Wrong token',
                 error_description: 'Wrong token',
@@ -139,9 +139,9 @@ export function getInitialDiscoveryMockData() {
             defaultExternalUri: 'http://whatever/.well-known/entry-points/external',
         },
         authApi: {
-            authorizationUri: 'http://whatever/restapi/oauth/authorize',
+            authorizationUri: 'http://whatever/app/api/authorize',
             oidcDiscoveryUri: 'http://whatever/.well-known/openid-configuration',
-            defaultTokenUri: 'http://whatever/restapi/oauth/token',
+            defaultTokenUri: 'http://whatever/app/api/token',
         },
         coreApi: {
             baseUri: 'http://whatever',
@@ -161,10 +161,10 @@ export function getExternalDiscoveryMockData() {
             externalUri: 'http://whatever/.well-known/entry-points/external',
         },
         authApi: {
-            authorizationUri: 'http://whatever/restapi/oauth/authorize',
+            authorizationUri: 'http://whatever/app/api/authorize',
             oidcDiscoveryUri: 'http://whatever/.well-known/openid-configuration',
             baseUri: 'http://whatever',
-            tokenUri: 'http://whatever/restapi/oauth/token',
+            tokenUri: 'http://whatever/app/api/token',
         },
         rcv: {
             baseApiUri: 'http://whatever',

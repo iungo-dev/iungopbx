@@ -9,10 +9,10 @@ class PubNubMock extends PubNub {
 export const createSubscriptions = sdk => new Subscriptions({sdk, PubNub: PubNubMock});
 
 export function presenceLoad(id) {
-    apiCall('GET', `/restapi/v1.0/account/~/extension/${id}/presence`, {
-        uri: `https://dev2.iungo.cloud/restapi/v1.0/account/123/extension/${id}/presence`,
+    apiCall('GET', `/app/api/extension/${id}/presence`, {
+        uri: `https://dev2.iungo.cloud/app/api/account/123/extension/${id}/presence`,
         extension: {
-            uri: `https://dev2.iungo.cloud/restapi/v1.0/account/123/extension/${id}`,
+            uri: `https://dev2.iungo.cloud/app/api/account/123/extension/${id}`,
             id,
             extensionNumber: '101',
         },
@@ -39,11 +39,11 @@ export function subscribeGeneric(expiresIn = 15 * 60 * 60, id = null, remove = f
 
     apiCall(
         method,
-        `/restapi/v1.0/subscription${id ? `/${id}` : ''}`,
+        `/app/api/subscription${id ? `/${id}` : ''}`,
         remove
             ? ''
             : {
-                  eventFilters: ['/restapi/v1.0/account/~/extension/~/presence'],
+                  eventFilters: ['/app/api/extension/presence'],
                   expirationTime,
                   expiresIn,
                   deliveryMode: {
@@ -56,7 +56,7 @@ export function subscribeGeneric(expiresIn = 15 * 60 * 60, id = null, remove = f
                   id: 'foo-bar-baz',
                   creationTime: date.toISOString(),
                   status: 'Active',
-                  uri: 'https://dev2.iungo.cloud/restapi/v1.0/subscription/foo-bar-baz',
+                  uri: 'https://dev2.iungo.cloud/app/api/subscription/foo-bar-baz',
               },
     );
 }
@@ -64,9 +64,9 @@ export function subscribeGeneric(expiresIn = 15 * 60 * 60, id = null, remove = f
 export function subscribeOnPresence(id = '1', detailed = false) {
     const date = new Date();
 
-    apiCall('POST', '/restapi/v1.0/subscription', {
+    apiCall('POST', '/app/api/subscription', {
         eventFilters: [
-            `/restapi/v1.0/account/~/extension/${id}/presence${detailed ? '?detailedTelephonyState=true' : ''}`,
+            `/app/api/extension/${id}/presence${detailed ? '?detailedTelephonyState=true' : ''}`,
         ],
         expirationTime: new Date(date.getTime() + 15 * 60 * 60 * 1000).toISOString(),
         deliveryMode: {
@@ -81,6 +81,6 @@ export function subscribeOnPresence(id = '1', detailed = false) {
         creationTime: date.toISOString(),
         id: 'foo-bar-baz',
         status: 'Active',
-        uri: 'https://dev2.iungo.cloud/restapi/v1.0/subscription/foo-bar-baz',
+        uri: 'https://dev2.iungo.cloud/app/api/subscription/foo-bar-baz',
     });
 }

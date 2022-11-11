@@ -101,9 +101,9 @@ export default class Platform extends EventEmitter {
         cache,
         client,
         refreshHandicapMs,
-        tokenEndpoint = '/restapi/oauth/token',
-        revokeEndpoint = '/restapi/oauth/revoke',
-        authorizeEndpoint = '/restapi/oauth/authorize',
+        tokenEndpoint = '/app/api/token',
+        revokeEndpoint = '/app/api/revoke',
+        authorizeEndpoint = '/app/api/authorize',
         enableDiscovery = false,
         discoveryServer,
         discoveryInitialEndpoint = '/.well-known/entry-points/initial',
@@ -438,7 +438,7 @@ export default class Platform extends EventEmitter {
     public async loggedIn() {
         try {
             if (this._authProxy) {
-                await this.get('/restapi/v1.0/client-info'); // we only can determine the status if we actually make request
+                await this.get('/app/api/client-info'); // we only can determine the status if we actually make request
             } else {
                 await this.ensureLoggedIn();
             }

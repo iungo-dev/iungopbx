@@ -68,7 +68,7 @@ describe('Subscription', () => {
             'captures automatic subscription renew errors',
             asyncTest(async sdk => {
                 subscribeGeneric(quickExpiresIn);
-                apiCall('PUT', '/restapi/v1.0/subscription/foo-bar-baz', {message: 'expected'}, 400, 'Bad Request');
+                apiCall('PUT', '/app/api/subscription/foo-bar-baz', {message: 'expected'}, 400, 'Bad Request');
 
                 const subscription = createSubscription(sdk);
 
@@ -299,7 +299,7 @@ describe('Subscription', () => {
         it(
             'calls the error callback and passes the error provided from the platform',
             asyncTest(async sdk => {
-                apiCall('POST', '/restapi/v1.0/subscription', {message: 'Subscription failed'}, 400, 'Bad Request');
+                apiCall('POST', '/app/api/subscription', {message: 'Subscription failed'}, 400, 'Bad Request');
 
                 const s = createSubscription(sdk);
 
@@ -339,7 +339,7 @@ describe('Subscription', () => {
                         extensionId: 402853446008,
                         telephonyStatus: 'OnHold',
                     },
-                    event: '/restapi/v1.0/account/~/extension/402853446008/presence',
+                    event: '/app/api/extension/402853446008/presence',
                     uuid: 'db01e7de-5f3c-4ee5-ab72-f8bd3b77e308',
                 });
 

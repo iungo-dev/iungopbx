@@ -10,11 +10,11 @@ describe('Iungo.SDK', () => {
             clientSecret: '',
         });
 
-        const res = await sdk.platform().get('/restapi/v1.0', null, {skipAuthCheck: true});
+        const res = await sdk.platform().get('/app/api', null, {skipAuthCheck: true});
 
         await sdk.cache().clean();
 
-        expect((await res.json()).uri).to.equal(`${server}/restapi/v1.0`);
+        expect((await res.json()).uri).to.equal(`${server}/app/api`);
     };
 
     it('connects to sandbox', async function theTest() {

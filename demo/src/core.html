@@ -59,7 +59,7 @@
 
             function getExtension(cb) {
 
-                platform.get('/restapi/v1.0/account/~/extension/~')
+                platform.get('/app/api/extension/')
                     .then(function(response) {
                         return response.json();
                     })
@@ -72,7 +72,7 @@
 
             function getPresence(cb) {
 
-                platform.get('/restapi/v1.0/account/~/extension/~/presence', {query: {detailedTelephonyState: true}})
+                platform.get('/app/api/extension/presence', {query: {detailedTelephonyState: true}})
                     .then(function(response) {
                         return response.json();
                     }).then(cb).catch(function(e) {
@@ -83,7 +83,7 @@
 
             function getCallLog(cb) {
 
-                platform.get('/restapi/v1.0/account/~/extension/~/call-log')
+                platform.get('/app/api/extension/call-log')
                     .then(function(response) {
                         return response.json();
                     })
@@ -166,7 +166,7 @@
                 getPresence(function(presence) {
 
                     presenceUpdate(presence);
-                    getPresenceSubscription('/restapi/v1.0/account/~/extension/~/presence?detailedTelephonyState=true', presenceUpdate);
+                    getPresenceSubscription('/app/api/extension/presence?detailedTelephonyState=true', presenceUpdate);
 
                 });
 

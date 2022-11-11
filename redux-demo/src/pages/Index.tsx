@@ -21,7 +21,7 @@ class Index extends Component<any, IndexState> {
      */
     public async componentDidMount() {
         try {
-            const user = await (await sdk.get('/restapi/v1.0/account/~/extension/~')).json();
+            const user = await (await sdk.get('/app/api/extension/')).json();
             this.setState({user});
         } catch (error) {
             this.setState({error});
