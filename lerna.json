@@ -1,0 +1,15 @@
+{
+  "lerna": "3.22.1",
+  "packages": [
+    "api-test",
+    "demo",
+    "react",
+    "react-demo",
+    "redux",
+    "redux-demo",
+    "sdk",
+    "subscriptions",
+    "utils"
+  ],
+  "version": "0.0.0"
+}

@@ -1,0 +1,16 @@
+.svn
+.DS_Store
+.env
+.idea
+.vscode
+.rpt2_cache
+.nyc_output
+build
+coverage
+dist
+es6
+lib
+lerna-debug.*
+node_modules
+npm-debug.*
+package.json.lerna_backup
