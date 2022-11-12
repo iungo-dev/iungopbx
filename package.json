@@ -1,0 +1,19 @@
+{
+  "name": "@iungopbx/iungo-js",
+  "version": "1.0.0",
+  "description": "[![TravisCI Status](https://travis-ci.com/iungo/iungo-js.svg?branch=master)](https://travis-ci.com/iungo/iungo-js) [![Coverage Status](https://coveralls.io/repos/github/iungo/iungo-js/badge.svg?branch=master)](https://coveralls.io/github/iungo/iungo-js) [![Chat](https://img.shields.io/badge/chat-on%20glip-orange.svg)](https://iungo.github.io/join-iungo/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iungopbx/iungo-js.git"
+  },
+  "author": "Daniel Paixao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iungopbx/iungo-js/issues"
+  },
+  "homepage": "https://github.com/iungopbx/iungo-js#readme"
+}
