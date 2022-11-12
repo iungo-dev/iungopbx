@@ -1,6 +1,0 @@
-.nyc_output
-coverage
-mocha.opts
-tsconfig.es6.json
-tsconfig.json
-webpack.config.js
