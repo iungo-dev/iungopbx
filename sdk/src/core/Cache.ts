@@ -6,7 +6,7 @@ export interface CacheOptions {
 }
 
 export default class Cache {
-    public static defaultPrefix = 'rc-';
+    public static defaultPrefix = 'iungo-';
 
     private readonly _prefix = null;
 

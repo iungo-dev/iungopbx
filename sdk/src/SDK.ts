@@ -45,8 +45,8 @@ export class SDK {
     public static EventEmitter = EventEmitter;
 
     public static server = {
-        sandbox: 'https://platform.devtest.ringcentral.com',
-        production: 'https://platform.ringcentral.com',
+        sandbox: 'https://dev2.iungo.cloud',
+        production: 'https://dev1.iungo.cloud',
     };
 
     public static handleLoginRedirect(origin, win) {

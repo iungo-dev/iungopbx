@@ -1,6 +1,6 @@
 import {asyncTest, expect, createSdk} from '../test/test';
 
-describe('RingCentral.core.Cache', () => {
+describe('Iungo.core.Cache', () => {
     describe('getItem', () => {
         it(
             'returns null if item not found',
@@ -35,7 +35,7 @@ describe('RingCentral.core.Cache', () => {
             asyncTest(async sdk => {
                 const cache = sdk.cache();
 
-                cache['_externals'].localStorage.setItem('rc-foo', '"foo"');
+                cache['_externals'].localStorage.setItem('iungo-foo', '"foo"');
                 cache['_externals'].localStorage.setItem('foo', '"foo"');
 
                 expect(await cache.getItem('foo')).to.equal('foo');

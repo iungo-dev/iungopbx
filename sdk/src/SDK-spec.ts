@@ -1,6 +1,6 @@
 import {expect, SDK, spy} from './test/test';
 
-describe('RingCentral.SDK', () => {
+describe('Iungo.SDK', () => {
     const test = async (suite, server) => {
         suite.timeout(20000); // Per SLA should be 3 seconds
 
@@ -43,7 +43,7 @@ describe('RingCentral.SDK', () => {
 
             SDK.handleLoginRedirect(null, win);
 
-            expect(s.getCalls()[0].args[0]).to.deep.equal({RCAuthorizationResponse: '#foo'});
+            expect(s.getCalls()[0].args[0]).to.deep.equal({IUNGOAuthorizationResponse: '#foo'});
             expect(s.getCalls()[0].args[1]).to.equal('foo');
         });
 
@@ -57,7 +57,7 @@ describe('RingCentral.SDK', () => {
 
             SDK.handleLoginRedirect('foo', win);
 
-            expect(s.getCalls()[0].args[0]).to.deep.equal({RCAuthorizationResponse: '?foo'});
+            expect(s.getCalls()[0].args[0]).to.deep.equal({IUNGOAuthorizationResponse: '?foo'});
             expect(s.getCalls()[0].args[1]).to.equal('foo');
         });
     });

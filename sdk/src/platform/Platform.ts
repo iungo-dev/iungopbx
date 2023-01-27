@@ -124,7 +124,7 @@ export default class Platform extends EventEmitter {
         this._clearCacheOnRefreshError = clearCacheOnRefreshError;
         this._authProxy = authProxy;
         this._urlPrefix = urlPrefix;
-        this._userAgent = `${appName ? `${appName + (appVersion ? `/${appVersion}` : '')} ` : ''}RCJSSDK/${
+        this._userAgent = `${appName ? `${appName + (appVersion ? `/${appVersion}` : '')} ` : ''}IUNGOJSSDK/${
             Constants.version
         }${additionalUserAgent ? ` ${additionalUserAgent}` : ''}`;
 
@@ -496,7 +496,7 @@ export default class Platform extends EventEmitter {
                     body.grant_type = 'urn:ietf:params:oauth:grant-type:jwt-bearer';
                     body.assertion = jwt;
                 } else if (code) {
-                    //@see https://developers.ringcentral.com/legacy-api-reference/index.html#!#RefAuthorizationCodeFlow
+                    //@see https://iungo.cloud/legacy-api-reference/index.html#!#RefAuthorizationCodeFlow
                     body.grant_type = 'authorization_code';
                     body.code = code;
                     body.redirect_uri = redirect_uri ? redirect_uri : this._redirectUri;
@@ -940,7 +940,7 @@ export interface LoginWindowOptions {
     target?: string;
 }
 
-export interface AuthorizationQuery {
+export interface AuthorizationQuery extends qs.ParsedUrlQueryInput {
     response_type: 'token' | 'code';
     response_hint?: string | string[];
     redirect_uri: string;

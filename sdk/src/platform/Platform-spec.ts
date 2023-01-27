@@ -18,7 +18,7 @@ import {version} from '../core/Constants';
 const globalAny: any = global;
 const windowAny: any = typeof window !== 'undefined' ? window : global;
 
-describe('RingCentral.platform.Platform', () => {
+describe('Iungo.platform.Platform', () => {
     describe('isTokenValid', () => {
         it(
             'is not authenticated when token has expired',
@@ -59,7 +59,7 @@ describe('RingCentral.platform.Platform', () => {
                     request = r;
                 });
                 await platform.get(path, null);
-                expect(request.headers.get('x-user-agent')).to.equal(`RCJSSDK/${version}`);
+                expect(request.headers.get('x-user-agent')).to.equal(`IUNGOJSSDK/${version}`);
             }),
         );
 
@@ -303,7 +303,7 @@ describe('RingCentral.platform.Platform', () => {
                     });
                     await platform.login({code: 'test'});
                     expect(request.headers.get('authorization')).to.equal(null);
-                    expect(request.body || request.originalBody).have.string('client_id=whatever');
+                    expect(request.originalBody || request.body).have.string('client_id=whatever');
                     const authData = await platform.auth().data();
                     expect(authData.access_token).to.equal('ACCESS_TOKEN');
                 },
@@ -623,7 +623,7 @@ describe('RingCentral.platform.Platform', () => {
                     });
                     await platform.refresh();
                     expect(request.headers.get('authorization')).to.equal(null);
-                    expect(request.body || request.originalBody).have.string('client_id=whatever');
+                    expect(request.originalBody || request.body).have.string('client_id=whatever');
                     const authData = await platform.auth().data();
                     expect(authData.access_token).to.equal('ACCESS_TOKEN_FROM_REFRESH');
                 },
@@ -867,7 +867,7 @@ describe('RingCentral.platform.Platform', () => {
                 setTimeout(() => {
                     windowAny.triggerEvent({origin: 'bar'});
                     windowAny.triggerEvent({origin: 'foo', data: {foo: 'bar'}});
-                    windowAny.triggerEvent({origin: 'foo', data: {RCAuthorizationResponse: '#access_token=foo'}});
+                    windowAny.triggerEvent({origin: 'foo', data: {IUNGOAuthorizationResponse: '#access_token=foo'}});
                 }, 10);
 
                 const res = await platform.loginWindow({
@@ -891,7 +891,7 @@ describe('RingCentral.platform.Platform', () => {
                 window.open = openSpy;
 
                 setTimeout(() => {
-                    windowAny.triggerEvent({origin: 'foo', data: {RCAuthorizationResponse: '#bar=foo'}});
+                    windowAny.triggerEvent({origin: 'foo', data: {IUNGOAuthorizationResponse: '#bar=foo'}});
                 }, 10);
 
                 await expectThrows(async () => {
@@ -962,7 +962,7 @@ describe('RingCentral.platform.Platform', () => {
                 window.removeEventListener = spy();
 
                 setTimeout(() => {
-                    windowAny.triggerEvent({origin: 'foo', data: {RCAuthorizationResponse: '#access_token=foo'}});
+                    windowAny.triggerEvent({origin: 'foo', data: {IUNGOAuthorizationResponse: '#access_token=foo'}});
                 }, 1000);
 
                 platform.loginWindow({
@@ -1028,7 +1028,7 @@ describe('RingCentral.platform.Platform', () => {
                     });
                     await platform.logout();
                     expect(request.headers.get('authorization')).to.equal(null);
-                    expect(request.body || request.originalBody).have.string('client_id=whatever');
+                    expect(request.originalBody || request.body).have.string('client_id=whatever');
                     expect(await platform.auth().accessTokenValid()).to.equal(false);
                 },
                 {clientSecret: ''},

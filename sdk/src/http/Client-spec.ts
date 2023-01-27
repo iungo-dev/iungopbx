@@ -6,7 +6,7 @@ const createResponse = (sdk, json, status, statusText, headers): Response => {
     return sdk.platform().get(path);
 };
 
-describe('RingCentral.http.Client', () => {
+describe('Iungo.http.Client', () => {
     describe('createRequest', () => {
         it(
             'sets default headers & properties for GET',

@@ -1,0 +1,8 @@
+{
+	"version": "0.0.0",
+	"name": "@iungo/sdk-api-test",
+	"private": true,
+	"dependencies": {
+		"soap": "^0.23.0"
+	}
+}
