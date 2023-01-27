@@ -62,14 +62,14 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            sdk/dist/ringcentral.js
-            sdk/dist/ringcentral.js.map
-            sdk/dist/ringcentral.min.js
-            sdk/dist/ringcentral.min.js.map
-            subscriptions/dist/ringcentral-subscriptions.js
-            subscriptions/dist/ringcentral-subscriptions.js.map
-            subscriptions/dist/ringcentral-subscriptions.min.js
-            subscriptions/dist/ringcentral-subscriptions.min.js.map
+            sdk/dist/iungo.js
+            sdk/dist/iungo.js.map
+            sdk/dist/iungo.min.js
+            sdk/dist/iungo.min.js.map
+            subscriptions/dist/iungo-subscriptions.js
+            subscriptions/dist/iungo-subscriptions.js.map
+            subscriptions/dist/iungo-subscriptions.min.js
+            subscriptions/dist/iungo-subscriptions.min.js.map
         env:
           GITHUB_REPOSITORY: iungopbx/iungo-js
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
