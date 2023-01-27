@@ -1,4 +1,4 @@
-import {SDK} from '@iungo/sdk';
+import {SDK} from '@iungopbx/sdk';
 import {AUTH_ERROR, LOGIN, LOGIN_SUCCESS, LOGOUT, LOGOUT_SUCCESS} from './constants';
 
 export interface ActionsOptions {

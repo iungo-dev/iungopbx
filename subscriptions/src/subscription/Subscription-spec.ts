@@ -1,4 +1,4 @@
-import {apiCall, asyncTest, expect, expectThrows} from '@iungo/sdk/lib/test/test';
+import {apiCall, asyncTest, expect, expectThrows} from '@iungopbx/sdk/lib/test/test';
 import {createSubscriptions, subscribeGeneric} from '../test/test';
 
 const pollInterval = 1; // ms

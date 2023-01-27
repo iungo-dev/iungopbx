@@ -1,4 +1,4 @@
-import SDK from '@iungo/sdk';
+import SDK from '@iungopbx/sdk';
 import {version} from '../package.json';
 
 const redirectUri = `${window.location.origin}/api/oauth2Callback`; // make sure you have this configured in Dev Portal

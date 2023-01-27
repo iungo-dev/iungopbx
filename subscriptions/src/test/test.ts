@@ -1,4 +1,4 @@
-import {apiCall} from '@iungo/sdk/lib/test/test';
+import {apiCall} from '@iungopbx/sdk/lib/test/test';
 import PubNub from 'pubnub';
 import {Subscriptions} from '../Subscriptions';
 

@@ -1,4 +1,4 @@
-import {asyncTest, expect} from '@iungo/sdk/lib/test/test';
+import {asyncTest, expect} from '@iungopbx/sdk/lib/test/test';
 import {createSubscriptions} from '../test/test';
 
 describe('CachedSubscription', () => {

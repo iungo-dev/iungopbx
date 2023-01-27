@@ -1,7 +1,7 @@
 # Installation
 
 ```bash
-$ npm install --save @iungo/react @iungo/sdk
+$ npm install --save @iungopbx/react @iungopbx/sdk
 ```
 
 # Usage
@@ -16,7 +16,7 @@ First, you need to configure SDK:
 
 ```js
 // lib.js
-import SDK from "@iungo/sdk";
+import SDK from "@iungopbx/sdk";
 
 const redirectUri = `${window.location.origin}/api/redirect`; // make sure you have this configured in Dev Portal
 
@@ -55,7 +55,7 @@ Next, configure the wrapper for non-authorized pages:
 // LoggedOutWrapper.js
 import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import {withAuthGate} from '../lib'; // change to @iungo/react
+import {withAuthGate} from '../lib'; // change to @iungopbx/react
 import OauthRedirect from './OauthRedirect';
 import Login from './Login';
 import {sdk} from './lib';
@@ -87,7 +87,7 @@ Login page:
 ```js
 // Login.js
 import React from 'react';
-import {withAuthGate} from '../lib'; // change to @iungo/react
+import {withAuthGate} from '../lib'; // change to @iungopbx/react
 import {sdk} from './lib';
 
 const Login = ({authError, loginUrl, authorizing}) => {
@@ -113,7 +113,7 @@ Redirect landing page:
 ```js
 // OauthRedirect.js
 import React from 'react';
-import {withAuthGate} from '../lib'; // change to @iungo/react
+import {withAuthGate} from '../lib'; // change to @iungopbx/react
 import {sdk} from './lib';
 
 class OauthRedirect extends React.PureComponent {
@@ -139,7 +139,7 @@ Now let's configure what happens when user is logged in:
 // LoggedInWrapper.js
 import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import {withAuthGate} from '../lib'; // change to @iungo/react
+import {withAuthGate} from '../lib'; // change to @iungopbx/react
 import Dashboard from './Dashboard';
 import {sdk} from './lib';
 

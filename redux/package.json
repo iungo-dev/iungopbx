@@ -1,5 +1,5 @@
 {
-  "name": "@iungo/redux",
+  "name": "@iungopbx/redux",
   "version": "0.0.0",
   "scripts": {
     "clean": "rimraf lib/* es6/* .cache",
@@ -11,8 +11,8 @@
     "start:tsc:es6": "npm run build:tsc:es6 -- --watch --preserveWatchOutput"
   },
   "devDependencies": {
-    "@iungo/sdk": "*",
-    "@iungo/sdk-utils": "*",
+    "@iungopbx/sdk": "*",
+    "@iungopbx/sdk-utils": "*",
     "@types/node": "^18.8.5",
     "@types/react": "^16.14.21",
     "@types/react-redux": "^6.0.9",
@@ -26,7 +26,7 @@
     "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "@iungo/sdk": ">=4",
+    "@iungopbx/sdk": ">=4",
     "react": "^16.0.0",
     "redux": "*"
   },

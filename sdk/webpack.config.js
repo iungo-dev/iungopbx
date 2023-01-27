@@ -1,4 +1,4 @@
-const createConfig = require('@iungo/sdk-utils/webpack');
+const createConfig = require('@iungopbx/sdk-utils/webpack');
 const path = require('path');
 
 module.exports = createConfig({

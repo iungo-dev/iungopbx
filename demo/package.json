@@ -1,6 +1,6 @@
 {
 	"version": "0.0.0",
-	"name": "@iungo-demo/sdk",
+	"name": "@iungopbx-demo/sdk",
 	"private": true,
 	"scripts": {
 		"start": "http-server -p $DEMO_PORT"
@@ -9,8 +9,8 @@
 		"http-server": "^0.11.1"
 	},
 	"dependencies": {
-		"@iungo/sdk": "*",
-		"@iungo/subscriptions": "*",
+		"@iungopbx/sdk": "*",
+		"@iungopbx/subscriptions": "*",
 		"backbone": "1.3.3",
 		"bootstrap": "3.4.1",
 		"es6-promise": "4.2.5",

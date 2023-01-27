@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {RouteComponentProps} from 'react-router-dom';
-import {withAuthGate, AuthGateRenderProps} from '@iungo/react';
+import {withAuthGate, AuthGateRenderProps} from '@iungopbx/react';
 import {sdk} from './lib';
 
 interface OauthRedirectProps extends RouteComponentProps, AuthGateRenderProps {}

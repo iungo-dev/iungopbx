@@ -1,5 +1,5 @@
 {
-  "name": "@iungo/subscriptions",
+  "name": "@iungopbx/subscriptions",
   "version": "0.0.0",
   "scripts": {
     "clean": "rimraf dist/* lib/* es6/* coverage/* .nyc_output .rpt2_cache",
@@ -21,8 +21,8 @@
     "pubnub": "^4.29.11"
   },
   "devDependencies": {
-    "@iungo/sdk": "git+https://github.com/iungopbx/sdk.git",
-    "@iungo/sdk-utils": "git+https://github.com/iungopbx/sdk-utils.git",
+    "@iungopbx/sdk": "git+https://github.com/iungopbx/sdk.git",
+    "@iungopbx/sdk-utils": "git+https://github.com/iungopbx/sdk-utils.git",
     "@types/mocha": "^5.2.5",
     "@types/node": "^18.8.5",
     "@types/pubnub": "^4.0.2",

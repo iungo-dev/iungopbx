@@ -1,5 +1,5 @@
 {
-  "name": "@iungo-demo/redux",
+  "name": "@iungopbx-demo/redux",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,8 +7,8 @@
     "start": "PORT=$REDUX_DEMO_PORT SKIP_PREFLIGHT_CHECK=true react-scripts start"
   },
   "dependencies": {
-    "@iungo/redux": "*",
-    "@iungo/sdk": "*",
+    "@iungopbx/redux": "*",
+    "@iungopbx/sdk": "*",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-redux": "^5.1.1",
@@ -18,7 +18,7 @@
     "redux-logger": "^3.0.6"
   },
   "devDependencies": {
-    "@iungo/sdk-utils": "*",
+    "@iungopbx/sdk-utils": "*",
     "@types/node": "^18.8.5",
     "@types/react": "^16.14.21",
     "@types/react-dom": "^16.9.8",

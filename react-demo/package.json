@@ -1,5 +1,5 @@
 {
-  "name": "@iungo-demo/react",
+  "name": "@iungopbx-demo/react",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,14 +7,14 @@
     "start": "PORT=$REACT_DEMO_PORT SKIP_PREFLIGHT_CHECK=true react-scripts start"
   },
   "dependencies": {
-    "@iungo/react": "*",
-    "@iungo/sdk": "*",
+    "@iungopbx/react": "*",
+    "@iungopbx/sdk": "*",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
-    "@iungo/sdk-utils": "*",
+    "@iungopbx/sdk-utils": "*",
     "@types/node": "^18.8.5",
     "@types/react": "^16.14.21",
     "@types/react-dom": "^16.9.8",

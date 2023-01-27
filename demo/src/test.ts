@@ -1,5 +1,5 @@
-import {SDK} from '@iungo/sdk';
-import {Subscriptions} from '@iungo/subscriptions';
+import {SDK} from '@iungopbx/sdk';
+import {Subscriptions} from '@iungopbx/subscriptions';
 
 const sdk = new SDK({
     clientId: 'foo',

@@ -2,8 +2,8 @@ import {createLogger} from 'redux-logger';
 import {applyMiddleware, createStore as createReduxStore, combineReducers, Store} from 'redux';
 import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
 import {connectedRouterRedirect} from 'redux-auth-wrapper/history4/redirect';
-import SDK from '@iungo/sdk';
-import StoreConnector from '@iungo/redux';
+import SDK from '@iungopbx/sdk';
+import StoreConnector from '@iungopbx/redux';
 import {version} from '../package.json';
 
 const locationHelper = locationHelperBuilder({});

@@ -1,5 +1,5 @@
 import React from 'react';
-import {withAuthGate} from '@iungo/react';
+import {withAuthGate} from '@iungopbx/react';
 import {sdk} from './lib';
 
 const Login = ({authError, loginUrl, authorizing}: any) => {

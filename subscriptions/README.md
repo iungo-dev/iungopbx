@@ -17,17 +17,17 @@ Follow all instructions from [SDK package](../sdk).
 1. Install the NPM package:
 
     ```sh
-    npm install @iungo/sdk @iungo/subscriptions --save
+    npm install @iungopbx/sdk @iungopbx/subscriptions --save
     ```
 
 2. Require the SDK:
 
     ```js
-    import {SDK} from "@iungo/sdk";
-    import {Subscriptions} from "@iungo/subscriptions";
+    import {SDK} from "@iungopbx/sdk";
+    import {Subscriptions} from "@iungopbx/subscriptions";
     // or
     const SDK = require('iungo').SDK;
-    const Subscriptions = require('@iungo/subscriptions').Subscriptions;
+    const Subscriptions = require('@iungopbx/subscriptions').Subscriptions;
 
     const sdk = new SDK({
         server: SDK.server.sandbox,
@@ -53,8 +53,8 @@ Pick the option that works best for you:
 
 - Use CDN **Attention! Versions listed here may be outdated**:
     - ... all SDK dependencies
-    - https://unpkg.com/@iungo/sdk@latest/dist/iungo.js
-    - https://unpkg.com/browse/@iungo/subscriptions@latest/dist/iungo-subscriptions.js
+    - https://unpkg.com/@iungopbx/sdk@latest/dist/iungo.js
+    - https://unpkg.com/browse/@iungopbx/subscriptions@latest/dist/iungo-subscriptions.js
     - https://unpkg.com/pubnub@latest/dist/web/pubnub.js
 
 - Download everything manually:

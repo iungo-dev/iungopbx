@@ -1,5 +1,5 @@
 import PubNubDefault from 'pubnub';
-import {SDK} from '@iungo/sdk';
+import {SDK} from '@iungopbx/sdk';
 import Subscription, {SubscriptionOptions} from './subscription/Subscription';
 import CachedSubscription, {CachedSubscriptionOptions} from './subscription/CachedSubscription';
 

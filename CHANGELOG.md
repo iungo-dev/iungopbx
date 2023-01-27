@@ -5,7 +5,7 @@ This document contains only major functionality changes in certain versions. Min
 ## 4.0
 
 - SDK will not add `/restapi/v1.0` to URLs
-- SDK was separated into 2 packages: `@iungo/sdk` and `@iungo/subscriptions`
+- SDK was separated into 2 packages: `@iungopbx/sdk` and `@iungopbx/subscriptions`
 - `appKey` and `appSecret` were replaced with `clientId` and `clientSecret`
 - Async implementation of `Storage`
 - Platform method `createUrl('xxx', {addToken: true})` has been extracted as separate async method `signUrl('xxx')`

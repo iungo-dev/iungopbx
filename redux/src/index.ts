@@ -1,4 +1,4 @@
-import {SDK} from '@iungo/sdk';
+import {SDK} from '@iungopbx/sdk';
 import {combineReducers, Store} from 'redux';
 
 import Actions, {ActionsOptions} from './actions';

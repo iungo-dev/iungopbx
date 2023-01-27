@@ -1,4 +1,4 @@
-const createConfig = require('@iungo/sdk-utils/webpack');
+const createConfig = require('@iungopbx/sdk-utils/webpack');
 const path = require('path');
 
 module.exports = createConfig({
@@ -7,9 +7,9 @@ module.exports = createConfig({
     outputPath: path.resolve(__dirname, 'dist'),
     libraryName: 'Subscriptions',
     externals: {
-        '@iungo/sdk': {
-            commonjs: '@iungo/sdk',
-            commonjs2: '@iungo/sdk',
+        '@iungopbx/sdk': {
+            commonjs: '@iungopbx/sdk',
+            commonjs2: '@iungopbx/sdk',
             amd: 'iungo',
             root: 'Iungo',
         },

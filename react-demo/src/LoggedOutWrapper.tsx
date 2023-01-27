@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {Redirect, Route, Switch, RouteComponentProps} from 'react-router-dom';
-import {withAuthGate, AuthGateRenderProps} from '@iungo/react';
+import {withAuthGate, AuthGateRenderProps} from '@iungopbx/react';
 import OauthRedirect from './OauthRedirect';
 import Login from './Login';
 import {sdk} from './lib';

@@ -1,4 +1,4 @@
-import {expect, spy, fetchMock} from '@iungo/sdk-utils/test';
+import {expect, spy, fetchMock} from '@iungopbx/sdk-utils/test';
 import {SDK, SDKOptions} from '../SDK';
 
 fetchMock.config.fallbackToNetwork = true;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SDK} from '@iungo/sdk';
+import {SDK} from '@iungopbx/sdk';
 
 function getDisplayName(WrappedComponent) {
     return WrappedComponent.displayName || WrappedComponent.name || 'Component';

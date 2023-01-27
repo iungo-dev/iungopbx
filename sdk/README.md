@@ -35,15 +35,15 @@ SDK can be used in 3 environments:
 1. Install the NPM package:
 
     ```sh
-    npm install @iungo/sdk --save
+    npm install @iungopbx/sdk --save
     ```
 
 2. Require the SDK:
 
     ```js
-    import {SDK} from "@iungo/sdk";
+    import {SDK} from "@iungopbx/sdk";
     // op
-    const SDK = require('@iungo/sdk').SDK;
+    const SDK = require('@iungopbx/sdk').SDK;
 
     const iungosdk = new SDK({
         server: SDK.server.sandbox,
@@ -64,7 +64,7 @@ Follow installation steps for NodeJS. Don't forget to add `target: 'web'` to you
 Pick the option that works best for you:
 
 - Use CDN **Attention! Versions listed here may be outdated**:
-    - https://unpkg.com/@iungo/sdk@latest/dist/iungo.js
+    - https://unpkg.com/@iungopbx/sdk@latest/dist/iungo.js
     - https://unpkg.com/whatwg-fetch@latest/dist/fetch.umd.js
     - https://unpkg.com/es6-promise@latest/dist/es6-promise.auto.js
 

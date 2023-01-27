@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import AuthGate from '@iungo/redux/lib/AuthGate';
+import AuthGate from '@iungopbx/redux/lib/AuthGate';
 import {redirectPath, authenticated, notAuthenticated} from './lib';
 
 import Index from './pages/Index';

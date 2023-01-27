@@ -1,5 +1,5 @@
 import PubNubDefault from 'pubnub';
-import {SDK, ApiError} from '@iungo/sdk';
+import {SDK, ApiError} from '@iungopbx/sdk';
 
 // detect ISO 8601 format string with +00[:00] timezone notations
 const ISO_REG_EXP = /(\+[\d]{2}):?([\d]{2})?$/;
