@@ -1,6 +1,6 @@
 {
   "name": "@iungopbx-demo/redux",
-  "version": "0.0.0",
+  "version": "4.7.2",
   "private": true,
   "scripts": {
     "clean": "rimraf build",

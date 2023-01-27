@@ -1,6 +1,6 @@
 {
   "name": "@iungopbx/redux",
-  "version": "0.0.0",
+  "version": "4.7.2",
   "scripts": {
     "clean": "rimraf lib/* es6/* .cache",
     "build": "npm run clean && npm run build:tsc:es5 && npm run build:tsc:es6",
@@ -39,7 +39,10 @@
   },
   "contributors": [
     {
-      "name": "Kirill Konshin"
+      "name": "Daniel Paixao"
+    },
+    {
+      "name": "Lucas Santos"
     }
   ],
   "repository": {

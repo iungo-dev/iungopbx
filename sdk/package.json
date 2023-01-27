@@ -1,6 +1,6 @@
 {
   "name": "@iungopbx/sdk",
-  "version": "0.0.0",
+  "version": "4.7.2",
   "scripts": {
     "clean": "rimraf dist/* lib/* es6/* coverage/* .nyc_output .rpt2_cache",
     "test": "npm run nyc && npm run karma",
@@ -51,6 +51,9 @@
   "contributors": [
     {
       "name": "Daniel Paixao"
+    },
+    {
+      "name": "Lucas Santos"
     }
   ],
   "repository": {
